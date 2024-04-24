@@ -89,7 +89,8 @@ class _HomescreenState extends State<Homescreen> {
   }
 
   void bottomSheet(BuildContext context) {
-    showModalBottomSheet(backgroundColor: Colors.red.shade100,
+    showModalBottomSheet(
+        backgroundColor: Colors.red.shade100,
         showDragHandle: true,
         enableDrag: true,
         context: context,
@@ -141,7 +142,8 @@ class _HomescreenState extends State<Homescreen> {
   }
 
   void updatebottomSheet(BuildContext context, int? id) {
-    showModalBottomSheet(backgroundColor: Colors.red.shade100,
+    showModalBottomSheet(
+        backgroundColor: Colors.red.shade100,
         showDragHandle: true,
         enableDrag: true,
         context: context,
@@ -167,13 +169,14 @@ class _HomescreenState extends State<Homescreen> {
                     ),
                     MaterialButton(
                       onPressed: () {
-                        Provider.of<HomescreenController>(context, listen: false)
+                        Provider.of<HomescreenController>(context,
+                                listen: false)
                             .updateEmployee(
                                 name: name_ctrl.text,
                                 role: role_ctrl.text,
                                 id: id);
                         Navigator.pop(context);
-            
+
                         name_ctrl.clear();
                         role_ctrl.clear();
                         setState(() {

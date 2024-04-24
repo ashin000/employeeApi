@@ -74,7 +74,7 @@ class ApiHelper {
     try {
       final response =
           await http.delete(url, headers: header, body: jsonEncode(body));
-      //jsonEncode il body pass akeno
+      //jsonEncode il body pass akanam
 
       return _handleResponse(response);
     } catch (e) {
@@ -106,60 +106,22 @@ class ApiHelper {
       "status": 0,
     };
   }
-
-  //put
-//   static Future updateData(
-//       {
-//         //future added
-//         required String endPoint,
-//         Map<String, String>? header,
-//         required Map<String, dynamic> body,
-//         String? finalUrl}) async {
-//     log("Api-helper>postData 5");
-//     log("$body");
-//
-//     final url = Uri.parse(Appconfig.baseUrl + endPoint);
-//
-//     //code from gpt
-//     log("Request URL: $url");
-//     try {
-//       final response = await http.put(url,headers: header, body:jsonEncode(body) );
-// // After response
-//       log("Response Status Code: ${response.statusCode}");
-//       if (response.statusCode == 200 || response.statusCode == 201) {
-//         var data = response.body;
-//         var decodedData = jsonDecode(data);
-//         log(decodedData["status"].toString());
-//         return decodedData;
-//       } else {
-//         log("Else Condition -> Api failed");
-//         var data = response.body;
-//         var decodedData = jsonDecode(data);
-//         log(decodedData["status"].toString());
-//         return decodedData;
-//       }
-//     } catch (e) {
-//       var error = e.toString();
-//       log(">>>>>>>>>>>>: $error");
-//     }
-//   }
-
+//put
   static Future<dynamic> updateData(
       {required String endPoint, required Map<String, dynamic> body}) async {
     Uri url = Uri.parse(Appconfig.baseUrl + endPoint);
     log("request url ==== $url");
 
     try {
-      final response=await http.put(url,body:body );
-      if (response.statusCode==200){
-        var decodedData=jsonDecode(response.body);
+      final response = await http.put(url, body: body);
+      if (response.statusCode == 200) {
+        var decodedData = jsonDecode(response.body);
         return decodedData;
-      }else{
+      } else {
         log(" update api failed");
       }
     } catch (e) {
       log("$e");
     }
-
   }
 }

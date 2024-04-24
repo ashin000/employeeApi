@@ -53,7 +53,7 @@ class HomescreenController with ChangeNotifier {
 
   void updateEmployee({required String name, required String role, int? id}) {
     var data = {"name": name, "role": role};
-    HomescreenService.putEmp(data,id).then((decodedData) {
+    HomescreenService.putEmp(data, id).then((decodedData) {
       print("success i.e status ==1");
       if (decodedData["status"] == 1) {
         print("employee updated Successfully");
@@ -64,10 +64,7 @@ class HomescreenController with ChangeNotifier {
       }
     });
   }
-
 }
-
-
 
 //   void updateEmployee({required String name, required String role, id}) {
 //     var data ={"name":name,"role":role,"id":id

@@ -5,19 +5,17 @@ import 'package:apiexam/respository/helper/api_helper.dart';
 class HomescreenService {
   static Future<dynamic> getempList() async {
     try {
-      var decodedData = await ApiHelper.getData(
-          endPoint: "flutter_exam/employees/");
+      var decodedData =
+          await ApiHelper.getData(endPoint: "flutter_exam/employees/");
       log('service=>' + decodedData.toString());
       if (decodedData != null && decodedData["status"] == 1) {
         log("Data fetched successfully");
         return decodedData['data'];
-      }
-      else {
+      } else {
         log("Failed to fetch data: ${decodedData?["status"]}");
         return null;
       }
-    }
-    catch (e) {
+    } catch (e) {
       log("Error fetching data:$e");
       return null;
     }
@@ -39,11 +37,10 @@ class HomescreenService {
     }
   }
 
-
   static deleteEmp(id) async {
     try {
-      var decodedData = await ApiHelper.deleteData(
-          endPoint: "flutter_exam/employees/$id/");
+      var decodedData =
+          await ApiHelper.deleteData(endPoint: "flutter_exam/employees/$id/");
       if (decodedData["status"] == 1) {
         return decodedData;
       } else {
@@ -55,8 +52,10 @@ class HomescreenService {
     }
   }
 
-
-  static putEmp(Map<String, dynamic> data, id,) async {
+  static putEmp(
+    Map<String, dynamic> data,
+    id,
+  ) async {
     try {
       var decodedData = await ApiHelper.updateData(
           endPoint: "flutter_exam/employees/update/$id/", body: data);
@@ -72,6 +71,3 @@ class HomescreenService {
     }
   }
 }
-
-
-
