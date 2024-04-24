@@ -66,7 +66,7 @@ class ApiHelper {
 
 //for delete
 
-  static Future<Map<String, dynamic>> deleteData(
+  static Future<Map<String, dynamic>>deleteData(
       {required String endPoint,
       Map<String, String>? header,
       Map<String, dynamic>? body}) async {
